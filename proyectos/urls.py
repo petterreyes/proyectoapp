@@ -22,9 +22,9 @@ urlpatterns = [
     path('about-me/', views.about, name="about-me"),
     path('contact/', views.contact, name="contact"),
     path('admin/', admin.site.urls),
-    path('portfolio/', views.portfolio, name="portfolio"),
-    #path('horario/', views.horario, name="horario"),
+    path('promociones/', views.promociones, name="promociones"),
+    path('citas/', views.citas, name="citas"),
     #path('Citas/', views.Citas, name="Citas"),
-    #path('medico/', views.medico, name="medico"),
+    path('medico/', views.medico, name="medico"),
 
 ]

@@ -45,15 +45,15 @@ def about(request, plantilla="about.html"):
 def contact(request, plantilla="contact.html"):
     return render(request, plantilla)
 
-def portfolio(request, plantilla="portfolio.html"):
+def promociones(request, plantilla="promociones.html"):
     return render(request, plantilla)
 
-'''
-def horario(request, plantilla="horario.html"):
+def citas(request, plantilla="citas.html"):
     return render(request, plantilla)
 
 def medico(request, plantilla="medico.html"):
     return render(request, plantilla)
+'''
 def Citas(request, plantilla="Citas.html"):
     return render(request, plantilla)
     '''

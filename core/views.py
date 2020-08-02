@@ -53,9 +53,9 @@ def citas(request, plantilla="citas.html"):
 
 def medico(request, plantilla="medico.html"):
     return render(request, plantilla)
-'''
+
 def servicios(request, plantilla="servicios.html"):
     return render(request, plantilla)
-'''
+
 
 

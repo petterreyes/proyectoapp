@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<title> {% block title %} HOME {% endblock %} </title>
+
+{% block background %}{% load static %}{% static 'img/doctor.jpg' %}{% endblock %}
+
+{% block content %}
+    <h2>Crear medico</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+            {{ medico.as_p }}
+        <button type="submit" >Crear Medico</button>
+    </form>
+
+
+{% endblock %}

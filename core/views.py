@@ -1,4 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
+from .forms import MedicosForm, Medicos
+
+'''from django.shortcuts import render, HttpResponse
 
 
 # Create your views here.
@@ -35,6 +38,7 @@ def contact(request):
     html_responsde = "<h1>la pagina de contacto</h1>"
     html_responsde = html_base + html_responsde
     return HttpResponse(html_responsde);
+    '''
 
 def home(request, plantilla="home.html"):
     return render(request, plantilla)
@@ -51,11 +55,58 @@ def promociones(request, plantilla="promociones.html"):
 def citas(request, plantilla="citas.html"):
     return render(request, plantilla)
 
-def medico(request, plantilla="medico.html"):
-    return render(request, plantilla)
+
 
 def servicios(request, plantilla="servicios.html"):
     return render(request, plantilla)
 
 
 
+
+# Create your views here.
+
+#pagina inicial del crud SELECT
+def medico(request, plantilla="medico.html"):
+    medicos = Medicos.objects.all()
+    data = {
+        'medico':medicos
+    }
+    return render(request, plantilla, data)
+
+#pagina de crear o insertar INSERT
+def crearmedicos(request, template_name="crearmedicos.html"):
+
+    if request.method == "POST":
+        form = MedicosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('medico')
+    else:
+        form = MedicosForm
+
+    return render(request, template_name, {'medico':form})
+
+#pagina de modificar o actualizar al medico UPDATE
+def modificarmedicos(request, template_name="modificarmedicos.html"):
+
+
+    if request.method == "POST":
+        form = MedicosForm(request.POST, )
+        if form.is_valid():
+            form.save()
+            redirect('medico')
+    else:
+        form=MedicosForm
+
+    return render(request, template_name, {'medico':form})
+
+#pagina de borrado o eliminado al medico DELETE
+def eliminarmedicos(request, template_name="eliminarmedicos.html"):
+    if request.method == "POST":
+        form = MedicosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('medico')
+    else:
+        form=MedicosForm
+    return render(request, template_name, {'medico':form})

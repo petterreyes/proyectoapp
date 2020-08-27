@@ -4,5 +4,37 @@
 {% block background %}{% load static %}{% static 'img/doctor.jpg' %}{% endblock %}
 
 {% block content %}
-    <h2>Dr. Tomas Ubilla<br>Dra. Rocio Gavilanez</h2>
+    <h2>MEDICOS</h2>
+
+    <a class="nav-link" href="{% url 'crearmedicos' %}">Crear medico</a>
+    <a class="nav-link" href="{% url 'modificarmedicos' %}">Modificar medico</a>
+    <a class="nav-link" href="{% url 'eliminarmedicos' %}">Eliminar medico</a>
+
+    <table>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Email</th>
+            <th>Sexo</th>
+            <th>Opciones</th>
+        </tr>
+
+        {% for p in medico %}
+
+        <tr>
+            <td>{{ p.apellido }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.edad }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.sexo }}</td>
+            <td>
+                <a href="">Modificar</a>
+            </td>
+        </tr>
+
+         {% endfor %}
+    </table>
+
+
 {% endblock %}

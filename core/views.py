@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from .forms import MedicosForm, Medicos
 
 '''from django.shortcuts import render, HttpResponse
@@ -86,19 +86,18 @@ def crearmedicos(request, template_name="crearmedicos.html"):
 
     return render(request, template_name, {'medico':form})
 
-#pagina de modificar o actualizar al medico UPDATE
-def modificarmedicos(request, template_name="modificarmedicos.html"):
-
-
+## MODIFICAR DOCENTE CRUD
+def modificarmedicos(request, pk, plantilla="modificarmedicos.html"):
     if request.method == "POST":
-        form = MedicosForm(request.POST, )
+        form = MedicosForm(request.POST or None)
         if form.is_valid():
             form.save()
-            redirect('medico')
+        return redirect('medico')
     else:
-        form=MedicosForm
+        medico = get_object_or_404(Medicos, pk=pk)
+        form = MedicosForm(request.POST or None, instance=medico)
+    return render(request, plantilla, {'medico': form})
 
-    return render(request, template_name, {'medico':form})
 
 #pagina de borrado o eliminado al medico DELETE
 def eliminarmedicos(request, template_name="eliminarmedicos.html"):

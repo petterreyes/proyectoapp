@@ -7,8 +7,6 @@
     <h2>MEDICOS</h2>
 
     <a class="nav-link" href="{% url 'crearmedicos' %}">Crear medico</a>
-    <a class="nav-link" href="{% url 'modificarmedicos' %}">Modificar medico</a>
-    <a class="nav-link" href="{% url 'eliminarmedicos' %}">Eliminar medico</a>
 
     <table>
         <tr>
@@ -29,7 +27,7 @@
             <td>{{ p.email }}</td>
             <td>{{ p.sexo }}</td>
             <td>
-                <a href="">Modificar</a>
+                <a class="nav-link" href="{% url 'modificarmedicos' p.id %}">editar</a>
             </td>
         </tr>
 

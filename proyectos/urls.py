@@ -28,6 +28,8 @@ urlpatterns = [
     path('crearmedicos/', views.crearmedicos, name="crearmedicos"),
     path('modificarmedicos/', views.modificarmedicos, name="modificarmedicos"),
     path('eliminarmedicos/', views.eliminarmedicos, name="eliminarmedicos"),
+    path('modificarmedicos/<int:pk>', views.modificarmedicos, name="modificarmedicos"),
+
     #path('usuarios/', include('usuarios.urls'), name="usuarios"),
 
     path('admin/', admin.site.urls),

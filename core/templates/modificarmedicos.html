@@ -1,16 +1,15 @@
 {% extends "base.html" %}
-<title> {% block title %} HOME {% endblock %} </title>
 
-{% block background %}{% load static %}{% static 'img/doctor.jpg' %}{% endblock %}
+{% block background %}{%load static%}{% static 'img/home-bg.jpg' %}{% endblock %}
+
 
 {% block content %}
-    <h2>Modificar medico</h2>
+    <h2> Modificar medico </h2>
 
     <form method="POST">
         {% csrf_token %}
-            {{ medico.as_p }}
-        <button type="submit" >Modificar</button>
+             {{ medico.as_p  }}
+        <button type="submit" >Modificar Medico</button>
     </form>
-
 
 {% endblock %}
